@@ -1,7 +1,7 @@
 // src/App.tsx
 import React from "react";
 
-import { Box, Paper } from "@mui/material";
+import { Box } from "@mui/material";
 import "./App.css";
 import { type Task } from "./components/tasks";
 import TaskList from "./components/TaskList";
@@ -12,16 +12,9 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import TaskCounter from "./components/TaskCounter";
 
 
-const mockOnClearList = () =>
-  console.log('Função mock: "Limpar lista" chamada!');
-
-const mockOnTitleChange = (newTitle: string) =>
-  console.log('Função mock: "Alterar título" chamada com:', newTitle);
-
 const App: React.FC = () => {
-
   // Troca mockTasks pelo hook de Local Storage
-  const [tasks, setTasks] = useLocalStorage<Task[]>("tasks", [])
+  const [tasks, setTasks] = useLocalStorage<Task[]>("tasks", []);
 
   //Funções para manipular tarefas
   const handleAddItem = (title: string) => {
@@ -50,7 +43,8 @@ const App: React.FC = () => {
   const handleClearList = () => setTasks([]);
 
   const handleTitleChange = (newTitle: string) => {
-    
+    // Implement title change logic here if needed
+    console.log('Título alterado para:', newTitle);
   }
 
 
@@ -59,31 +53,28 @@ const App: React.FC = () => {
   const completedTasks = tasks.filter((task) => task.completed)
 
   return (
-    
-      <Box sx={{ p: 2 }}>
-        <Paper sx={{ p: 2 }}>
-          <Header
-            listTitle="Minha Lista de Tarefas"
-            onTitleChange={mockOnTitleChange}
-            onClearList={mockOnClearList}
-          />
-          <TaskCounter completedTasks={completedTasks} pendingTasks={pendingTasks} />
-          <AddItemInput onAddItem={handleAddItem} />
-          <TaskList
-            title="Tarefas pendentes"
-            tasks={pendingTasks}
-            onToggleComplete={handleToggleComplete}
-            onRemoveItem={handleRemoveItem}
-          />
-          <TaskList
-            title="Itens concluídos"
-            tasks={completedTasks}
-            onToggleComplete={handleToggleComplete}
-            onRemoveItem={handleRemoveItem}
-          />
-        </Paper>
-      </Box>
-    
+    <Box className="app-container">
+        <Header
+          listTitle="Minha Lista de Tarefas"
+          onTitleChange={handleTitleChange}
+          onClearList={handleClearList}
+        />
+        <TaskCounter completedTasks={completedTasks} pendingTasks={pendingTasks} />
+        <AddItemInput onAddItem={handleAddItem} />
+        <TaskList
+          title="Tarefas pendentes"
+          tasks={pendingTasks}
+          onToggleComplete={handleToggleComplete}
+          onRemoveItem={handleRemoveItem}
+        />
+        <TaskList
+          title="Itens concluídos"
+          tasks={completedTasks}
+          onToggleComplete={handleToggleComplete}
+          onRemoveItem={handleRemoveItem}
+        />
+
+    </Box>
   );
 };
 

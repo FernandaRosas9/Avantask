@@ -1,7 +1,8 @@
-// componente pra adicionar item pra lista //
-import React, { useState } from 'react';
-import { TextField, InputAdornment, IconButton } from '@mui/material';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+//componente pra adicionar item pra lista//
+
+import React, { useState } from "react";
+import { TextField, InputAdornment, IconButton } from "@mui/material";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 // Estrutura de task
 export type Task = {
@@ -29,7 +30,7 @@ const AddItemInput: React.FC<AddItemInputProps> = ({ onAddItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-item-form" onSubmit={handleSubmit}>
       <TextField
         fullWidth
         placeholder="Adicionar item da lista"

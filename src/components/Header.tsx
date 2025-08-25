@@ -9,13 +9,11 @@ type HeaderProps = {
   listTitle: string;
   onTitleChange: (newTitle: string) => void;
   onClearList: () => void;
-
 };
 
 const Header: React.FC<HeaderProps> = ({
   listTitle,
   onClearList,
-
 }) => {
   return (
     <Box className="header">
