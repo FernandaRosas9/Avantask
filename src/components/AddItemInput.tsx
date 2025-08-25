@@ -30,7 +30,7 @@ const AddItemInput: React.FC<AddItemInputProps> = ({ onAddItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-item-form" onSubmit={handleSubmit}>
       <TextField
         fullWidth
         placeholder="Adicionar item da lista"

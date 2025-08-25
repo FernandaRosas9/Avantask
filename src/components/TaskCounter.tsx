@@ -49,11 +49,11 @@ const TaskCounter = ({ pendingTasks, completedTasks }: TaskCounterProps) => {
   }, [pendingTasks, completedTasks]);
 
   return (
-    <Paper
+    <Box
       elevation={3}
-      sx={{ p: 4, mb: 4, borderRadius: 3, bgcolor: "white" }}
+      sx={{ p: 4, mb: 4, borderRadius: 3 }}
     >
-      <Typography variant="h6" fontWeight="bold" mb={2} color="text.primary">
+      <Typography variant="h6" fontWeight="bold" mb={2} color="text.primary" align="center">
         📊 Contador de Tarefas
       </Typography>
 
@@ -85,7 +85,7 @@ const TaskCounter = ({ pendingTasks, completedTasks }: TaskCounterProps) => {
           color="success"
         />
       </Box>
-    </Paper>
+    </Box>
   );
 };
 
