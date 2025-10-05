@@ -1,5 +1,7 @@
 # koru-projeto-07-todo-list
 Todo List - Projeto 07 do Curso da Boticário + Koru
+vídeo da aplicação rodando:
+https://youtu.be/NBlIGQg0CwU
 
 Observações importantes
 # 📌 Guia de Contribuição
